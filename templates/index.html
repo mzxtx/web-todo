@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Assessment</title>
+    {#import css files#}
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
+</head>
+{#set background color#}
+<body style="background-color: rgba(185,204,228,0.63)">
+{#Site header (name and introduction)#}
+<div id="todo" class="nav">
+    <h1>TO-DO</h1>
+    <p>Welcome to TO-DO, where you can add your to-do list.</p>
+</div>
+
+{#search box#}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" id="search">
+            <form method="GET" action="{{ url_for('add.search') }}">
+                <div class="input-group input-group-lg">
+                    <input class="form-control" type="search" placeholder="Search Assessment"
+                           name="query">
+                    <span class="input-group-btn">
+						<button class="btn btn-default" type="submit">Search</button>
+					</span>
+                </div><!-- /input-group -->
+            </form>
+        </div><!-- /.col-md-6 -->
+    </div>
+</div>
+
+
+{#Assessment list#}
+<div class="row">
+    {#List the data in the module#}
+    <div class="col-md-3">
+        <div style="background-color: rgba(255,255,255,0.56)" id="module_list">
+            <table class="table">
+                <caption style="text-align: center" id="ml_title">Module List</caption>
+                <thead>
+                <tr>
+                    <th style="text-align: center">Code</th>
+                    <th style="text-align: center">Title</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for module in modules %}
+                    <tr>
+                        <td>{{ module.Code }}</td>
+                        <td>{{ module.Title }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div><!-- /.col-md-3 -->
+    {#List the data in the assessment#}
+    <div class="col-md-6">
+        <ul class="table">
+            {% for assessment in assessments %}
+                <li>
+                    <div class="assessment">
+                        <p class="tabel-at">
+                            <a href="#" class="tabel-at">
+                                {{ assessment.Assessment_Title }}
+                            </a>
+                            <a href="{{ url_for('add.status',id=assessment.id) }}">
+                                <button type="button" class="btn btn-primary"
+                                        style="float: right">{{ assessment.Status }}</button>
+                            </a>
+                        </p>
+                        <p class="table-module">
+                            <a>Module:</a>
+                            <span class="module-code">{{ assessment.Module_Code }}</span>
+                        </p>
+                        <p class="description">{{ assessment.Description }}</p>
+                        <p class="table-date">
+                            <a>Deadline:</a>
+                            <span class="deadline">{{ assessment.Deadline }}</span>
+                        </p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div><!-- /.col-md-6 -->
+    {#Add assessment and module#}
+    <div class="col-md-3">
+        <div class="btn-group-vertical" id="select">
+            <button type="button" class="btn btn-primary btn-lg" disabled="disabled">Add</button>
+            <button type="button" class="btn btn-default btn-lg" onclick="window.location.href='add_assessment'">Add
+                Assessment
+            </button>
+            <button type="button" class="btn btn-default btn-lg" onclick="window.location.href='add_module'">Add
+                Module
+            </button>
+            {#assessment Status Selection#}
+            <button type="button" class="btn btn-primary btn-lg" disabled="disabled">Status</button>
+            <button type="button" class="btn btn-default btn-lg" onclick="window.location.href='/'">All</button>
+            <button type="button" class="btn btn-default btn-lg" onclick="window.location.href='/search?query=To-do'">
+                To-do
+            </button>
+            <button type="button" class="btn btn-default btn-lg"
+                    onclick="window.location.href='/search?query=Completed'">Completed
+            </button>
+        </div>
+    </div><!-- /.col-md-3 -->
+</div>
+
+</body>
+</html>

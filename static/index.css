@@ -1,0 +1,126 @@
+/*index.html*/
+
+/*The header of the website*/
+#todo {
+    text-align: center;
+    margin-top: 0;
+    background-color: rgb(88, 133, 213);
+}
+#todo h1 {
+    color: white;
+    font-size: 50px;
+    margin-top: 2%;
+    font-weight: bold;
+}
+#todo p {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 2%;
+}
+
+/*search bar*/
+#search{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*assessment table*/
+.table li{
+    background-color: rgba(255, 255, 255, 0.58);
+    padding: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 12px;
+}
+.assessment{
+    width: 660px;
+    margin-left: 10px;
+    overflow: hidden;
+}
+.tabel-at{
+    color: black;
+    font-size: 27px;
+    font-weight: bold;
+}
+.description{
+    font-size: 15px;
+    color: dimgrey;
+}
+.table-module{
+    color: black;
+    font-size: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+.table-date{
+    color: rgb(20, 56, 173);
+    font-size: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+/*module table*/
+#module_list{
+    width: 90%;
+    border-radius: 12px;
+    margin-left: 13%;
+    text-align: center;
+}
+#ml_title{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(12, 48, 182);
+}
+
+
+#select{
+    margin-left: 10%;
+}
+
+
+
+
+
+/*add_module.html*/
+#module {
+    margin-top: 10%;
+    background-color: rgba(255, 255, 255, 0.53);
+    border-radius: 12px;
+}
+
+#module #title {
+    margin-top: 15%;
+    margin-bottom: 5%;
+    color: rgb(20, 56, 173);
+}
+
+#module #text {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20%;
+}
+
+
+
+
+
+/*add_assessment.html*/
+#assessment {
+    margin-top: 3%;
+    background-color: rgba(255, 255, 255, 0.53);
+    border-radius: 12px;
+    margin-bottom: 3%;
+}
+
+#assessment #title {
+    margin-top: 10%;
+    margin-bottom: 5%;
+    color: rgb(20, 56, 173);
+}
+
+#assessment #text {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+

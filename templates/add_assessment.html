@@ -1,0 +1,73 @@
+{#add new data to the assessment tabel#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add-Assessment</title>
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
+</head>
+<body style="background-color: rgb(88, 133, 213)">
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div><!-- /.col-md-3 -->
+        <div class="col-md-6" id="assessment">
+            <div id="title" class="text-center">
+                <h1>Add New Assessment</h1>
+                <a href="/">Return to home</a>
+            </div>
+            <form action="{{ url_for("add.add_assessment") }}" method="POST">
+                <div class="row" id="text">
+                    <div class="form-group">
+                        <label for="modulecode" class="fs-1">Module Code</label>
+                        <input type="text" class="form-control" id="modulecode"
+                               placeholder="Please input the module code"
+                               name="Module_Code">
+                        <small class="form-text text-muted">
+                            Please enter an existing module code or
+                            <a href="add_module">create a new module</a>
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Deadline</label>
+                        <input type="date" class="form-control" id="deadline"
+                               name="Deadline">
+                        <small class="form-text text-muted">Please select the deadline</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="assessmenttitle" class="fs-1">Assessment Title</label>
+                        <input type="text" class="form-control" id="assessmenttitle"
+                               placeholder="Please input the assessment title"
+                               name="Assessment_Title">
+                        <small class="form-text text-muted">Please enter 1~50 characters</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="fs-1">Description</label>
+                        <textarea class="form-control" rows="4" id="description"
+                                  name="Description"></textarea>
+                        <small class="form-text text-muted">Please enter a maximum of 200 characters</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="Status" class="fs-1">Status</label>
+                        <input type="text" class="form-control" id="assessmenttitle"
+                               placeholder="Please input the assessment title"
+                               name="Status">
+                        <small class="form-text text-muted">Please enter To-do or Completed</small>
+                    </div>
+
+                    {% for message in get_flashed_messages() %}
+                        <div class="form-group">
+                            <div class="text-danger">{{ message }}</div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.col-md-6 -->
+    </div>
+</div>
+</body>
+</html>
